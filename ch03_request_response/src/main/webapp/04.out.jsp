@@ -11,9 +11,11 @@
 	<%
 		int totalBuffer = out.getBufferSize();
 		int remaining = out.getRemaining();
+		int userBuffer = totalBuffer - remaining;
 	%>
 	현재 페이지의 Buffer 상태 <br>
 	총 Buffer 크기 : <%=totalBuffer %>byte <br>
 	남은 Buffer 크기 : <%=remaining %>byte <br>
+	현재 사용한 Buffer 크기 : <%=userBuffer %>byte <br>
 </body>
 </html>
