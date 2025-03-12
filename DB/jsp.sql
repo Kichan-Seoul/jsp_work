@@ -1,7 +1,10 @@
-create table test(
-    userid varchar2(30) primary key,
-    userpw varchar2(30) not null
+CREATE TABLE test (
+    userid VARCHAR2(30) PRIMARY KEY,
+    userpw VARCHAR2(30) NOT NULL
 );
-insert into test values('user01','pass01');
-insert into test values('user02','pass02');
-insert into test values('user03','pass03');
+
+INSERT INTO test VALUES ('user01', 'pass01');
+INSERT INTO test VALUES ('user02', 'pass02');
+INSERT INTO test VALUES ('user03', 'pass03');
+
+COMMIT; -- 변경 사항 저장
