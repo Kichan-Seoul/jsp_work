@@ -1,15 +1,12 @@
 package ch08;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
+import java.sql.*;
 
 public class MemberDao {
 	DBConnectionMgr pool = DBConnectionMgr.getInstance();
 	Connection con = null;
 	PreparedStatement pstmt = null;
 	ResultSet rs = null;
-	String query = null;
 	String sql = null;
 	
 	public boolean loginMember(String id, String pwd) {
@@ -21,10 +18,26 @@ public class MemberDao {
 			pstmt.setString(1, id);
 			pstmt.setString(2, pwd);
 			rs = pstmt.executeQuery();
-			flag = rs.next();	
+			flag = rs.next();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		return flag;
 	}
+	
+	public boolean chickId(String id) {
+		boolean flag = false;
+		try {
+			con = pool.getConnection();
+			sql = "select id from member where id=?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, id);
+			rs = pstmt.executeQuery();
+			flag = rs.next();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return flag;
+	}
+	
 }

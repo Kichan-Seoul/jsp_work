@@ -1,123 +1,130 @@
 package ch08;
 
+import java.util.Arrays;
+
 public class Member {
-	private String ID;
-	private String PWD;
-	private String NAME;
-	private String GENDER;
-	private String BIRTHDAY;
-	private String EMAIL;
-	private String ZIPCODE;
-	private String ADDRESS;
-	private String DETAILADDRESS;
-	private String[] HOBBY;
-	private String JOB;
-
-	public Member() {}
+	private String id;
+	private String pwd;
+	private String name;
+	private String gender;
+	private String birthday;
+	private String email;
+	private String zipcode;
+	private String address;
+	private String detail_address;
+	private String[] hobby;
+	private String job;
 	
-	public Member(String ID, String PWD, String NAME, String GENDER,
-			String BIRTHDAY, String EMAIL, String ZIPCODE, String ADDRESS
-			, String DETAILADDRESS, String[] HOBBY, String JOB) {
-		this.ID = ID;
-		this.PWD = PWD;
-		this.NAME = NAME;
-		this.GENDER = GENDER;
-		this.BIRTHDAY = BIRTHDAY;
-		this.EMAIL = EMAIL;
-		this.ZIPCODE = ZIPCODE;
-		this.ADDRESS = ADDRESS;
-		this.DETAILADDRESS = DETAILADDRESS;
-		this.HOBBY = HOBBY;
-		this.JOB = JOB;
-		
+	public Member() {
 	}
 
-	public String getID() {
-		return ID;
+	public Member(String id, String pwd, String name, String gender, String birthday, String email, String zipcode,
+			String address, String detail_address, String[] hobby, String job) {
+		this.id = id;
+		this.pwd = pwd;
+		this.name = name;
+		this.gender = gender;
+		this.birthday = birthday;
+		this.email = email;
+		this.zipcode = zipcode;
+		this.address = address;
+		this.detail_address = detail_address;
+		this.hobby = hobby;
+		this.job = job;
 	}
 
-	public void setID(String iD) {
-		this.ID = iD;
+	public String getId() {
+		return id;
 	}
 
-	public String getPWD() {
-		return PWD;
+	public void setId(String id) {
+		this.id = id;
 	}
 
-	public void setPWD(String pWD) {
-		this.PWD = pWD;
+	public String getPwd() {
+		return pwd;
 	}
 
-	public String getNAME() {
-		return NAME;
+	public void setPwd(String pwd) {
+		this.pwd = pwd;
 	}
 
-	public void setNAME(String nAME) {
-		this.NAME = nAME;
+	public String getName() {
+		return name;
 	}
 
-	public String getGENDER() {
-		return GENDER;
+	public void setName(String name) {
+		this.name = name;
 	}
 
-	public void setGENDER(String gENDER) {
-		this.GENDER = gENDER;
+	public String getGender() {
+		return gender;
 	}
 
-	public String getBIRTHDAY() {
-		return BIRTHDAY;
+	public void setGender(String gender) {
+		this.gender = gender;
 	}
 
-	public void setBIRTHDAY(String bIRTHDAY) {
-		this.BIRTHDAY = bIRTHDAY;
+	public String getBirthday() {
+		return birthday;
 	}
 
-	public String getEMAIL() {
-		return EMAIL;
+	public void setBirthday(String birthday) {
+		this.birthday = birthday;
 	}
 
-	public void setEMAIL(String eMAIL) {
-		this.EMAIL = eMAIL;
+	public String getEmail() {
+		return email;
 	}
 
-	public String getZIPCODE() {
-		return ZIPCODE;
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
-	public void setZIPCODE(String zIPCODE) {
-		this.ZIPCODE = zIPCODE;
+	public String getZipcode() {
+		return zipcode;
 	}
 
-	public String getADDRESS() {
-		return ADDRESS;
+	public void setZipcode(String zipcode) {
+		this.zipcode = zipcode;
 	}
 
-	public void setADDRESS(String aDDRESS) {
-		this.ADDRESS = aDDRESS;
+	public String getAddress() {
+		return address;
 	}
 
-	public String getDETAILADDRESS() {
-		return DETAILADDRESS;
+	public void setAddress(String address) {
+		this.address = address;
 	}
 
-	public void setDETAILADDRESS(String dETAILADDRESS) {
-		this.DETAILADDRESS = dETAILADDRESS;
+	public String getDetail_address() {
+		return detail_address;
 	}
 
-	public String[] getHOBBY() {
-		return HOBBY;
+	public void setDetail_address(String detail_address) {
+		this.detail_address = detail_address;
 	}
 
-	public void setHOBBY(String[] hOBBY) {
-		this.HOBBY = HOBBY;
+	public String[] getHobby() {
+		return hobby;
 	}
 
-	public String getJOB() {
-		return JOB;
+	public void setHobby(String[] hobby) {
+		this.hobby = hobby;
 	}
 
-	public void setJOB(String jOB) {
-		this.JOB = jOB;
+	public String getJob() {
+		return job;
 	}
-	
+
+	public void setJob(String job) {
+		this.job = job;
+	}
+
+	@Override
+	public String toString() {
+		return "Member [id=" + id + ", pwd=" + pwd + ", name=" + name + ", gender=" + gender + ", birthday=" + birthday
+				+ ", email=" + email + ", zipcode=" + zipcode + ", address=" + address + ", detail_address="
+				+ detail_address + ", hobby=" + Arrays.toString(hobby) + ", job=" + job + "]";
+	}
 }

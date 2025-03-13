@@ -4,107 +4,131 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>회원가입</title>
 <style>
 	body {background-color : #E7EDEC;}
+    table {
+        border: 1px solid;
+        border-collapse: collapse;
+        width: 1100px;
+    }
+	th, td {
+        border: 1px solid;
+        height:30px;
+    }
+    th {color:white; height: 40px; font-size: 20px;}
 </style>
+<script src="script.js"></script>
 </head>
 <body>
-	<form action="register.jsp">
-		<table class="signIn">
-        <tr>
-            <td colspan="3">Sign in</td>
-        </tr>
-        <tr>
-            <td>ID</td>
-            <td>
-                <input type="text" name="id" required>
-                <button type="button">ID중복확인</button>
-                
-            </td>
-            <td><h5>영문과 숫자로만 입력.</h5></td>
-        </tr>
-        <tr>
-            <td>비밀번호</td>
-            <td>
-                <input type="password" name="pwd" required>
-            </td>
-            <td ><h5>특수기호, 숫자 각 1글자 이상 포함하여 8자 이상 입력.</h5></td>
-        </tr>
-        <tr>
-            <td>비밀번호 확인</td>
-            <td>
-                <input type="password" name="pwd_confirm" required>
-            </td>
-            <td ><h5>위의 비밀번호를 한번 더 입력.</h5></td>
-        </tr>
-        <tr>
-            <td>이름</td>
-            <td>
-                <input type="text" name="name" required>
-            </td>
-            <td ><h5>한글로 입력.</h5></td>
-        </tr>
-        <tr>
-            <td>성별</td>
-            <td>
-                <input type="radio" name="gender" value="M" required>남&emsp;&emsp;&emsp;
-                <input type="radio" name="gender" value="F" required>여
-            </td>
-            <td ><h5>성별을 선택해 주세요.</h5></td>
-        </tr>
-        <tr>
-            <td>생년월일</td>
-            <td>
-                <input type="text" name="birthday" required>
-            </td>
-            <td ><h5>6글자로 입력. ex)971204</h5></td>
-        </tr>
-        <tr>
-            <td>우편번호</td>
-            <td>
-                <input type="text" name="zipcode">
-                <button type="button">우편번호 찾기</button>
-            </td>
-            <td ><h5>6글자로 입력. ex)971204</h5></td>
-        </tr>
-        <tr>
-            <td>주소</td>
-            <td>
-                <input type="text" name="address" required><br>
-                <input type="text" name="detailAddress" >
-            </td>
-            <td ><h5>상세주소가 있으면 입력.</h5></td>
-        </tr>
-        <tr>
-            <td>취미</td>
-            <td>
-                <input type="radio" name="hobby" value="축구" required>축구
-                <input type="radio" name="hobby" value="농구" required>농구
-                <input type="radio" name="hobby" value="야구" required>야구
-                <input type="radio" name="hobby" value="배구" required>배구
-                <input type="radio" name="hobby" value="하키" required>하키
-            </td>
-            <td ><h5>취미를 선택해 주세요.</h5></td>
-        </tr>
-        <tr>
-            <td>직업</td>
-            <td>
-                <select name="job">
-                    <option value="회사원">회사원</option>
-                    <option value="학생">학생</option>
-                    <option value="주부">주부</option>
-                </select>
-            </td>
-            <td ><h5>취미를 선택해 주세요.</h5></td>
-        </tr>
-        <tr>
-        	<td>
-        		<button type="button">Sign In</button>
-        		<input type="reset">
-        	</td>
-        </tr>
-    </table>
+	<form name="frm" method ="post" action="memberProc.jsp">
+		<table align="center">
+			<tr bgcolor="#799594">
+				<th colspan="3">회원가입</th>
+			</tr>
+			<tr>
+				<td>아이디</td>
+				<td>
+					<input name="id" onkeydown="inoutIdChk();">							 	
+					<input type="button" value="ID중복확인" onclick="idCheck(this.form.id.value);"> 
+					<input type="hidden" name="idBtnCheck" value="idUncheck">
+				</td>
+				<td>영문과 숫자로만 입력하세요</td>
+			</tr>
+			<tr>
+				<td>패스워드</td>
+				<td>
+					<input type="password" name="pwd">
+				</td>
+				<td>특수기호,영문,숫자가 각 1개 이상씩 들어가야 되고 8글자 이상</td>
+			</tr>
+			<tr>
+				<td>패스워드 확인</td>
+				<td>
+					<input type="password" name="repwd">
+				</td>
+				<td>위의 비밀번호를 한번 더 넣으세요</td>
+			</tr>
+			<tr>
+				<td>이름</td>
+				<td>
+					<input name="name">
+				</td>
+				<td>한글로 입력하세요</td>
+			</tr>
+			<tr>
+				<td>성별</td>
+				<td>
+					<input type="radio" name="gender" value="1" checked>남&emsp;&emsp;
+					<input type="radio" name="gender" value="2" >여
+				</td>
+				<td>성별을 선택해 주세요</td>
+			</tr>
+			<tr>
+				<td>생년월일</td>
+				<td>
+					<input name="birthday" >
+				</td>
+				<td>6글자로 입력. ex) 980315</td>
+			</tr>
+			<tr>
+				<td>E-mail</td>
+				<td>
+					<input type="email" name="email" size="40" >
+				</td>
+				<td>ex) email@naver.com</td>
+			</tr>
+			<tr>
+				<td>우편번호</td>
+				<td>
+					<input name="zipcode" id="postcode" readonly>
+					<input type="button" value="우편번호 찾기" >
+				</td>
+				<td>우편번호를 검색하세요</td>
+			</tr>
+			<tr>
+				<td>주소</td>
+				<td>
+					<input name="address" id="addr" size="60" readonly><br/>
+					<input name="detail_address" id="detailAddr" placeholder="상세주소 넣기">
+				</td>
+				<td>상세주소가 있으면 입력해주세요</td>
+			</tr>
+			<tr>
+				<td>취미</td>
+				<td>
+					<input type="checkbox" name="hobby" value="인터넷" checked>인터넷&nbsp;
+					<input type="checkbox" name="hobby" value="여행">여행&nbsp;
+					<input type="checkbox" name="hobby" value="게임">게임&nbsp;
+					<input type="checkbox" name="hobby" value="영화">영화&nbsp;
+					<input type="checkbox" name="hobby" value="운동">운동
+				</td>
+				<td>취미를 선택하세요</td>
+			</tr>
+			<tr>
+				<td>직업</td>
+				<td>
+					<select name="job">
+						<option value="0" selected>선택하세요.
+						<option value="회사원">회사원
+						<option value="공무원">공무원
+						<option value="의사">의사
+						<option value="법조인">법조인
+						<option value="학생">학생
+						<option value="교수">교수
+						<option value="기타">기타
+					</select>
+				</td>
+				<td>직업을 선택하세요</td>
+			</tr>
+			<tr>
+				<td colspan="3" align="center">
+					<input type="button" value="회원가입" onclick="memberProc.jsp">&emsp;
+					<input type="reset" value="다시쓰기">&emsp;
+					<input type="button" value="로그인">
+				</td>
+			</tr>
+		</table>
 	</form>
 </body>
 </html>
