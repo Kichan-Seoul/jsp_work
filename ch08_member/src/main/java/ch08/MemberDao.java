@@ -56,14 +56,16 @@ public class MemberDao {
 			pstmt.setString(8, mbean.getAddress());
 			pstmt.setString(9, mbean.getDetail_address());
 			pstmt.setString(10, String.join(" ", mbean.getHobby()));
+			/*
+			 * String hobbyDB = String.join(" ", mbean.getHobby()); String hobby[] =
+			 * hobbyDB.split(" "); System.out.println(hobby[0]);
+			 * System.out.println(hobby[1]);
+			 */
+			pstmt.setString(11, mbean.getJob());
 			
-			String hobbyDB = String.join(" ", mbean.getHobby());
-			String hobby[] = hobbyDB.split(" ");
-			System.out.println(hobby[0]);
-			System.out.println(hobby[1]);
-			
-			//pstmt.setString(11, mbean.getJob());
-			
+			if(pstmt.executeUpdate() == 1) { // executeUpdate() : 반환값은 update가 되었으면 1 반환, 안됐으면 0 반환
+				flag = true;
+			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

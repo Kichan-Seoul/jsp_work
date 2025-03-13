@@ -4,8 +4,19 @@
 <jsp:useBean id="mBean" class="ch08.Member" />
 <jsp:setProperty name="mBean" property="*" />
 <%
-	mDao.insertMember(mBean);
+	boolean result = mDao.insertMember(mBean);
+	String msg = "회원가입에 실패 하였습니다";
+	String url = "member.jsp";
+	
+	if(result) {
+		msg = "축하합니다. 회원이 되셨습니다.";
+		url = "login.jsp";
+	}
 %>
+<script>
+	alert("<%=msg %>");
+	location.href = "<%=url %>";
+</script>
 <!DOCTYPE html>
 <html>
 <head>
