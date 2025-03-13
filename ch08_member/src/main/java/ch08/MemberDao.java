@@ -40,4 +40,34 @@ public class MemberDao {
 		return flag;
 	}
 	
+	public boolean insertMember(Member mbean) {
+		boolean flag = false;
+		try {
+			con = pool.getConnection();
+			sql = "insert into member values(?,?,?,?,?,?,?,?,?,?,?)";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, mbean.getId());
+			pstmt.setString(2, mbean.getPwd());
+			pstmt.setString(3, mbean.getName());
+			pstmt.setString(4, mbean.getGender());
+			pstmt.setString(5, mbean.getBirthday());
+			pstmt.setString(6, mbean.getEmail());
+			pstmt.setString(7, mbean.getZipcode());
+			pstmt.setString(8, mbean.getAddress());
+			pstmt.setString(9, mbean.getDetail_address());
+			pstmt.setString(10, String.join(" ", mbean.getHobby()));
+			
+			String hobbyDB = String.join(" ", mbean.getHobby());
+			String hobby[] = hobbyDB.split(" ");
+			System.out.println(hobby[0]);
+			System.out.println(hobby[1]);
+			
+			//pstmt.setString(11, mbean.getJob());
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return flag;
+	}
+	
 }
