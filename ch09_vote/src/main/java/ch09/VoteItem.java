@@ -3,12 +3,12 @@ package ch09;
 public class VoteItem {
 	private int listnum;
 	private int itemnum;
-	private String item;
+	private String[] item;
 	private int count;
 	public VoteItem() {
 		
 	}
-	public VoteItem(int listnum, int itemnum, String item, int count) {
+	public VoteItem(int listnum, int itemnum, String[] item, int count) {
 		this.listnum = listnum;
 		this.itemnum = itemnum;
 		this.item = item;
@@ -26,10 +26,10 @@ public class VoteItem {
 	public void setItemnum(int itemnum) {
 		this.itemnum = itemnum;
 	}
-	public String getItem() {
+	public String[] getItem() {
 		return item;
 	}
-	public void setItem(String item) {
+	public void setItem(String[] item) {
 		this.item = item;
 	}
 	public int getCount() {
@@ -38,6 +38,5 @@ public class VoteItem {
 	public void setCount(int count) {
 		this.count = count;
 	}
-	
-	
+
 }
