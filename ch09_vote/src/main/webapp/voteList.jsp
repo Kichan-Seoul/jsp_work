@@ -9,13 +9,13 @@
 <meta charset="UTF-8">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" ></script>
-<title>Insert title here</title>
+<title>설문지</title>
 <style type="text/css">
 	* {margin: 0 auto;}
 	div {width: 800px;}
 	h2, h5 {text-align: center;}
 	.m30 {margin-top : 30px;}
-	a {text-decoration: none; color:black; cursor:pointer;}
+	a {text-decoration: none !important; color:black !important; cursor:pointer !important;}
 </style>
 </head>
 <body>
