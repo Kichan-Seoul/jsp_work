@@ -1,3 +1,4 @@
+
 package ch09;
 
 import java.sql.*;
@@ -103,12 +104,11 @@ public class VoteDao {
 	// 설문폼의 질문과 type 가져오기
 	public VoteList getOneVote(int num) {
 		VoteList vlist = new VoteList();
-		
+		if(num == 0) {
+			num = getMaxNum();
+		}
 		try {
 			con = pool.getConnection();
-			if(num == 0) {
-				num = getMaxNum();
-			}
 			sql = "select * from votelist where num=" + num;
 			
 			rs = con.createStatement().executeQuery(sql);
@@ -128,12 +128,11 @@ public class VoteDao {
 	// 설문폼의 item 가져오기
 	public ArrayList<String> getItem(int num) {
 		ArrayList<String> alist = new ArrayList<String>();
-		
+		if(num == 0) {
+			num = getMaxNum();
+		}
 		try {
 			con = pool.getConnection();
-			if(num == 0) {
-				num = getMaxNum();
-			}
 			sql = "select item from voteitem where listnum=" + num;
 			rs = con.createStatement().executeQuery(sql);
 			while(rs.next()) {
@@ -148,7 +147,7 @@ public class VoteDao {
 	}
 	
 	// 투표하기(count 증가)
-	public boolean updateCount(int num, String[] itemnum) {
+	public boolean updateCount(int num, String[] itemnum) {  
 		boolean flag = false;
 		
 		try {
@@ -165,16 +164,75 @@ public class VoteDao {
 				pstmt.setInt(2, Integer.parseInt(itemnum[i]));
 				result = pstmt.executeUpdate();
 			}
-			if(result == 1) {
+			if(result == 1) 
 				flag = true;
-			}
-			
+
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
 			pool.freeConnection(con);
 		}
 		return flag;
+	}
+	
+	// voteitem에서 count의 합계
+	public int sumCount(int num) {
+		int count = 0;
+		
+		try {
+			con = pool.getConnection();
+			sql = "select sum(count) from voteitem where listnum=?";
+			pstmt = con.prepareStatement(sql);
+			
+			if(num == 0)
+				pstmt.setInt(1, getMaxNum());
+			else
+				pstmt.setInt(1, num);
+			
+			rs = pstmt.executeQuery();
+			if(rs.next()) {
+				count = rs.getInt(1);
+			}	
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			pool.freeConnection(con);
+		}
+		return count;
+	}
+	
+	// voteitem의 각 항목의 count 가져오기
+	public ArrayList<VoteItem> getView(int num) {
+		ArrayList<VoteItem> alist = new ArrayList<VoteItem>();
+		
+		try {
+			con = pool.getConnection();
+			sql = "select item, count from voteitem where listnum=?";
+			pstmt = con.prepareStatement(sql);
+			
+			if(num == 0) {
+				pstmt.setInt(1, getMaxNum());
+			} else {
+				pstmt.setInt(1, num);
+			}
+			
+			rs = pstmt.executeQuery();
+			while(rs.next()) {
+				VoteItem vitem = new VoteItem();
+				
+				String item[] = new String[1];
+				item[0] = rs.getString("item");
+				
+				vitem.setItem(item);
+				vitem.setCount(rs.getInt("count"));
+				alist.add(vitem);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			pool.freeConnection(con);
+		}
+		return alist;
 	}
 
 }
