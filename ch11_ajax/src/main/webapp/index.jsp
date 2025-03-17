@@ -266,5 +266,30 @@
 	 })
 	 </script>
 	 
+	 <h3>3. 서버에 데이터 전송한 후, 조회된 bean객체를 응답데이터로 받을 때</h3>
+	 
+	 검색하고자하는 회원번호 ID : <input id="input3">&emsp;
+	 <input type="button" id="btn4" value="조회"><br>
+	 
+	 <div id="output4"></div>
+	 
+	 <script>
+	 $(()=>{
+		 $('#btn4').click(function() {
+			 $.ajax({
+				 url: ,
+				 data: ,
+				 success: function() {
+					 
+				 },
+				 error: function() {
+					 
+				 }
+			 })
+		 })
+	 })
+	 </script>
+	 
+	 
 </body>
 </html>

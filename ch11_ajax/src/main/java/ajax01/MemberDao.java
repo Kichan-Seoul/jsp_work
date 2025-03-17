@@ -77,7 +77,13 @@ public class MemberDao {
 	
 	// id에 해당하는 데이터 얻어오기(1행)
 	public Member getMember(String id) {
+		Member bean = new Member();
 		
+		try {
+			con = pool.getConnection();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 	
 	// 전체 member데이터 가져오기
