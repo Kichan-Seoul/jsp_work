@@ -79,4 +79,14 @@
     <servlet-name>ReplyController1</servlet-name>
     <url-pattern>/ajaxReply/rlist.bo</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ReplyController2</display-name>
+    <servlet-name>ReplyController2</servlet-name>
+    <servlet-class>ajaxReply.ReplyController2</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ReplyController2</servlet-name>
+    <url-pattern>/ajaxReply/rInsert.bo</url-pattern>
+  </servlet-mapping>
 </web-app>
