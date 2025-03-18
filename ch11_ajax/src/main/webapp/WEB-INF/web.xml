@@ -59,4 +59,24 @@
     <servlet-name>AjaxServletController5</servlet-name>
     <url-pattern>/AjaxServletController5</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>AjaxServletController6</display-name>
+    <servlet-name>AjaxServletController6</servlet-name>
+    <servlet-class>ajax01.AjaxServletController5</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AjaxServletController6</servlet-name>
+    <url-pattern>/AjaxServletController6</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ReplyController1</display-name>
+    <servlet-name>ReplyController1</servlet-name>
+    <servlet-class>ajaxReply.ReplyController1</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ReplyController1</servlet-name>
+    <url-pattern>/ajaxReply/rlist.bo</url-pattern>
+  </servlet-mapping>
 </web-app>
