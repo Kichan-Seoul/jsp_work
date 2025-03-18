@@ -15,6 +15,8 @@
 	
 	
 	
-	<h4><a href="el.do">01_EL구문</a></h4>
+	<h4><a href="01_EL/01.el.jsp">01_EL 구문</a></h4>
+	
+	<h4><a href="operation.do">02_EL 연산자</a></h4>
 </body>
 </html>
