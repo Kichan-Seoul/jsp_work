@@ -18,5 +18,13 @@
 	<h4><a href="01_EL/01.el.jsp">01_EL 구문</a></h4>
 	
 	<h4><a href="operation.do">02_EL 연산자</a></h4>
+	
+	<hr>
+	
+	<h1>JSP Action Tag</h1>
+	<p>xml 기술을 이용하여 기존의 JSP문법을 확장시키는 기술을 제공하는 태그들</p>
+	
+	<h3>* 커스텀 액션 태그</h3>
+	<a href="views/02_customAtction/jstl.jsp">jstl</a>
 </body>
 </html>
